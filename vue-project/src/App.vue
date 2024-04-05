@@ -9,14 +9,20 @@
 
 <script setup>
 import HelloWold from "@/components/HelloWorld.vue";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 
 const name = ref("Masingacite");
 const age = ref(30);
 
-const sentence = computed(() => {
-  return `Guten Morgen , ich bin ${name.value} und ich bin ${age.value} Jahre alte`;
+watch(name, (newValue, oldValue) => {
+  console.log("newValue", newValue, "oldValue", oldValue);
 });
+
+watch(age, (newValue, oldValue) => {
+  console.log("newValue", newValue, "oldValue", oldValue);
+});
+
+
 </script>
 
 <style scoped>
