@@ -1,6 +1,10 @@
 <template>
   <HelloWold :user="user" />
-  <input type="text" v-model="user.name" />
+
+  <div v-if="user.age > 15">v-if="condition"</div>
+
+  <div v-else>v-else</div>
+  <input type="text" v-model="user.name" @input="displayName" />
   <input type="text" v-model="user.age" />
 </template>
 
@@ -11,7 +15,7 @@ import { ref, reactive } from "vue";
 // ref props
 const user = ref({
   name: "Masingacite",
-  age: 38,
+  age: 39,
 });
 
 const users = reactive({
