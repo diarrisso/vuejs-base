@@ -11,11 +11,13 @@ const props = defineProps(["user"]);
 </script>
 
 <style scoped>
-.text-red {
-  color: red;
-}
 
-.text-gray {
-  color: black;
-}
+    .text-red {
+       color: red;
+    }
+
+    .text-gray {
+      color: black;
+    }
+
 </style>
