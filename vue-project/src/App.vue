@@ -1,10 +1,17 @@
 <template>
   <HelloWold>
 	<template v-slot:name>
-		{{ user.name }}
+		<div class="text-bold"
+		:class="[user.name.length > 10? 'text-red' : 'text-green']">
+			{{ user.name }}
+		</div>
 	</template>
 	<template v-slot:age>
-		{{user.age }}
+		<div class="text-bold"
+		:class="[user.age > 0 ? 'text-green' : 'text-red']">
+			{{user.age }}
+		</div>
+		
 	</template>
   </HelloWold>
 </template>
@@ -32,4 +39,20 @@ const displayName = () => {
 displayName();
 </script>
 
-<style scoped></style>
+<style scoped>
+
+	.text-bold {
+		color: black;
+		font-weight: bold;
+	}
+
+	.text-green  {
+
+		color: green;
+	}
+
+	.text-red {
+		color: red;
+	}
+
+</style>
