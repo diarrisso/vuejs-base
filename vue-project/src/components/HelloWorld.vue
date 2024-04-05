@@ -1,24 +1,45 @@
 <template>
-  <div>
-    <h1>Hallo</h1>
+  <div class="d-flex">
+    <div>
+        <h1>Todo1</h1>
 
-    {{ name }}
+        <p> {{ todo }}</p>
 
-    <input type="text" v-model="name" @input="handleUpdate" />
+         <button @click="id++">Next</button>
+
+    </div>
+    
+    <div>
+        <h1>Todo2</h1>
+
+        <p> {{ todo2 }}</p>
+        <button @click="id2++">Next</button>
+    </div>
   </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-const props = defineProps(["user"]);
-const name = ref("Maingacite");
+<script setup lang="ts">
 
-const emit = defineEmits(["updateName"]);
+import {useCounter } from '@/state';
 
-const handleUpdate = (event) => {
-  emit("updateName", event.target.value);
-  console.log(event.target.value);
-};
+const {
+    id: id,
+    todo: todo
+
+} = useCounter();
+
+const {
+    id: id2,
+    todo: todo2
+
+} = useCounter();
 </script>
 
-<style scoped></style>
+<style scoped>
+
+ .d-flex {
+
+    display: flex;
+ }
+
+</style>
