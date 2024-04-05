@@ -1,28 +1,19 @@
 <template>
-  <HelloWold />
-
-  <p>{{ sentence }}</p>
-
-  <input type="text" v-model="name" />
-  <input type="text" v-model="age" />
+  <HelloWold @update-name="(name) => display(name)" />
 </template>
 
 <script setup>
 import HelloWold from "@/components/HelloWorld.vue";
-import { computed, ref, watch } from "vue";
+import {ref} from 'vue';
 
-const name = ref("Masingacite");
-const age = ref(30);
+const users = ref(['asins'])
 
-watch(name, (newValue, oldValue) => {
-  console.log("newValue", newValue, "oldValue", oldValue);
-});
+const display = (name) => {
 
-watch(age, (newValue, oldValue) => {
-  console.log("newValue", newValue, "oldValue", oldValue);
-});
-
-
+	users.value.push([name])
+  console.log("app.vue " + name);
+  console.log(users.value);
+};
 </script>
 
 <style scoped>
