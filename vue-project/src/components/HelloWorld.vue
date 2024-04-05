@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>Hallo</h1>
-
-    <p>{{ props.user.name }} {{ props.user.age}}</p>
+    <slot name="name"></slot>
+    <slot name="age"></slot>
   </div>
 </template>
 
@@ -10,4 +10,12 @@
 const props = defineProps(["user"]);
 </script>
 
-<style scoped></style>
+<style scoped>
+.text-red {
+  color: red;
+}
+
+.text-gray {
+  color: black;
+}
+</style>

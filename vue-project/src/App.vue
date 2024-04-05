@@ -1,11 +1,12 @@
 <template>
-  <HelloWold :user="user" />
-
-  <div v-if="user.age > 15">v-if="condition"</div>
-
-  <div v-else>v-else</div>
-  <input type="text" v-model="user.name" @input="displayName" />
-  <input type="text" v-model="user.age" />
+  <HelloWold>
+	<template v-slot:name>
+		{{ user.name }}
+	</template>
+	<template v-slot:age>
+		{{user.age }}
+	</template>
+  </HelloWold>
 </template>
 
 <script setup>
